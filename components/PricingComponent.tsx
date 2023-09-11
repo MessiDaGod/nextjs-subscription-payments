@@ -94,7 +94,7 @@ export default function PricingComponent({
             {/* Plans */}
             {products.map((product, index: number) => {
               const detailsForProduct = productDetails.filter(detail => detail.product_id === product.id);
-
+              const paymentLink = product.id === '3' ? 'https://buy.stripe.com/3cs7vp4IGgX60KcbII' : 'https://supabase.com/dashboard/new?plan=free';
               const renderedDetails = detailsForProduct.map(detail => (
                   <li className="flex items-center py-2 first:mt-0" key={detail.id}>
                   <svg
@@ -200,7 +200,7 @@ export default function PricingComponent({
                           {renderedDetails}
                         </ul>
                         <div className="flex flex-col gap-6 mt-auto prose">
-                          <a href="https://supabase.com/dashboard/new?plan=free">
+                          <a href={paymentLink} target='_blank'>
                             <button
                               type="button"
                               className="relative cursor-pointer space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 border bg-brand-600 dark:bg-brand/70 hover:bg-brand-600/80 dark:hover:bg-brand text-white border-brand dark:border-brand focus-visible:outline-brand-600 shadow-sm w-full flex items-center justify-center text-sm leading-4 px-3 py-2"
