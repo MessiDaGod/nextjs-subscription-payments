@@ -126,21 +126,6 @@ export default function PricingComponent({
                         >
                           <div className="flex flex-col gap-1">
                             <div className="flex items-end gap-2">
-                              <div>
-                                <div className="flex items-end">
-                                  <p className="mt-2 gradient-text-scale-500 dark:gradient-text-scale-100 pb-1 text-5xl">
-                                    $0
-                                  </p>
-                                  <p className="text-scale-900 mb-1.5 ml-1 text-[13px] leading-4">
-                                    / month / org
-                                  </p>
-                                </div>
-                                <p className="-mt-2">
-                                  <span className="bg-scale-200 text-brand-600 border shadow-sm rounded-md bg-opacity-30 py-0.5 px-2 text-[13px] leading-4">
-                                    Limit of 2 free organizations
-                                  </span>
-                                </p>
-                              </div>
                             {product.prices?.map((price) => {
                               const priceString =
                                 price.unit_amount &&
@@ -153,33 +138,21 @@ export default function PricingComponent({
                               return (
                                 <div
                                   key={price.id}
-                                  className="divide-y rounded-lg shadow-sm divide-zinc-600 bg-zinc-900"
                                 >
-                                  <div className="p-6">
-                                    <p>
-                                    <p className="mt-2 gradient-text-scale-500 dark:gradient-text-scale-100 pb-1 text-5xl">
-                                    {priceString}
-                                  </p>
-                                      <span className="text-base font-medium text-zinc-100">
-                                        /{price.interval}
+                                  <div>
+                                    <div className="flex items-end">
+                                      <p className="mt-2 gradient-text-scale-500 dark:gradient-text-scale-100 pb-1 text-5xl">
+                                        {priceString}
+                                      </p>
+                                      <p className="text-scale-900 mb-1.5 ml-1 text-[13px] leading-4">
+                                      / unit
+                                      </p>
+                                    </div>
+                                    <p className="-mt-2">
+                                      <span className="bg-scale-200 text-brand-600 border shadow-sm rounded-md bg-opacity-30 py-0.5 px-2 text-[13px] leading-4">
+                                        {index === 2 ? 'Fixed price' : 'Usage-based plan'}
                                       </span>
                                     </p>
-                                    <p className="mt-4 text-zinc-300">
-                                      {price.description}
-                                    </p>
-                                    <Button
-                                      variant="slim"
-                                      type="button"
-                                      disabled={false}
-                                      loading={priceIdLoading === price.id}
-                                      onClick={() => handleCheckout(price)}
-                                      className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white rounded-md hover:bg-zinc-900"
-                                    >
-                                      {product.name ===
-                                      subscription?.prices?.products?.name
-                                        ? 'Manage'
-                                        : 'Subscribe'}
-                                    </Button>
                                   </div>
                                 </div>
                               );
