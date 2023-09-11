@@ -40,7 +40,7 @@ export default function PricingComponent({
   user,
   products,
   subscription,
-  productDetails,
+  productDetails
 }: Props) {
   const intervals = Array.from(
     new Set(
@@ -79,18 +79,45 @@ export default function PricingComponent({
 
   return (
     <div className="light">
-    <div className="relative z-10 py-16 lg:py-28">
+      <div className="relative z-10 py-16 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl space-y-2 lg:max-w-none">
-              <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">Pricing</h1>
-            </div>
+          <div className="mx-auto max-w-3xl space-y-2 lg:max-w-none">
+            <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+              Pricing
+            </h1>
+          </div>
         </div>
-    </div>
+      </div>
       <div className="mx-auto lg:container lg:px-16 xl:px-12 flex flex-col">
         <div className="relative z-10 mx-auto -mt-8 w-full px-4 sm:px-6 lg:px-8 ">
           <div className="mx-auto max-w-md grid lg:max-w-none lg:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-2 2xl:gap-5">
             {/* Plans */}
             {products.map((product, index: number) => {
+              const detailsForProduct = productDetails.filter(detail => detail.product_id === product.id);
+
+              const renderedDetails = detailsForProduct.map(detail => (
+                  <li className="flex items-center py-2 first:mt-0" key={detail.id}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="sbui-icon text-brand h-4 w-4"
+                    aria-hidden="true"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span className="dark:text-scale-1200 mb-0 ml-3 ">
+                    {detail.detail_text}
+                  </span>
+                </li>
+              ));
+
               return (
                 <React.Fragment key={product.id}>
                   <div
@@ -114,9 +141,9 @@ export default function PricingComponent({
                             </h3>
                           </div>
                         </div>
-                          <p className="text-scale-1100 my-4 text-sm border-b dark:border-scale-500 pb-4 2xl:pr-4">
-                            {product.description}
-                          </p>
+                        <p className="text-scale-1100 my-4 text-sm border-b dark:border-scale-500 pb-4 2xl:pr-4">
+                          {product.description}
+                        </p>
                         <div
                           className="
                         text-scale-1200 flex items-baseline
@@ -130,37 +157,37 @@ export default function PricingComponent({
                         >
                           <div className="flex flex-col gap-1">
                             <div className="flex items-end gap-2">
-                            {product.prices?.map((price) => {
-                              const priceString =
-                                price.unit_amount &&
-                                new Intl.NumberFormat('en-US', {
-                                  style: 'currency',
-                                  currency: price.currency!,
-                                  minimumFractionDigits: 0
-                                }).format(price.unit_amount);
+                              {product.prices?.map((price) => {
+                                const priceString =
+                                  price.unit_amount &&
+                                  new Intl.NumberFormat('en-US', {
+                                    style: 'currency',
+                                    currency: price.currency!,
+                                    minimumFractionDigits: 0
+                                  }).format(price.unit_amount);
 
-                              return (
-                                <div
-                                  key={price.id}
-                                >
-                                  <div>
-                                    <div className="flex items-end">
-                                      <p className="mt-2 gradient-text-scale-500 dark:gradient-text-scale-100 pb-1 text-5xl">
-                                        {priceString}
-                                      </p>
-                                      <p className="text-scale-900 mb-1.5 ml-1 text-[13px] leading-4">
-                                      / unit
+                                return (
+                                  <div key={price.id}>
+                                    <div>
+                                      <div className="flex items-end">
+                                        <p className="mt-2 gradient-text-scale-500 dark:gradient-text-scale-100 pb-1 text-5xl">
+                                          {priceString}
+                                        </p>
+                                        <p className="text-scale-900 mb-1.5 ml-1 text-[13px] leading-4">
+                                          / unit
+                                        </p>
+                                      </div>
+                                      <p className="-mt-2">
+                                        <span className="bg-scale-200 text-brand-600 border shadow-sm rounded-md bg-opacity-30 py-0.5 px-2 text-[13px] leading-4">
+                                          {index === 2
+                                            ? 'Fixed price'
+                                            : 'Usage-based plan'}
+                                        </span>
                                       </p>
                                     </div>
-                                    <p className="-mt-2">
-                                      <span className="bg-scale-200 text-brand-600 border shadow-sm rounded-md bg-opacity-30 py-0.5 px-2 text-[13px] leading-4">
-                                        {index === 2 ? 'Fixed price' : 'Usage-based plan'}
-                                      </span>
-                                    </p>
                                   </div>
-                                </div>
-                              );
-                            })}
+                                );
+                              })}
                             </div>
                           </div>
                         </div>
@@ -170,35 +197,12 @@ export default function PricingComponent({
                           Get started with:
                         </p>
                         <ul role="list" className="text-[13px] text-scale-1000">
-                          {productDetails.map((productDetail) => {
-                            return (
-                              <li className="flex items-center py-2 first:mt-0">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="sbui-icon text-brand h-4 w-4"
-                                aria-hidden="true"
-                              >
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                              </svg>
-                              <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                                {productDetail.detail_text}
-                              </span>
-                            </li>
-                            )
-                          })}
+                          {renderedDetails}
                         </ul>
                         <div className="flex flex-col gap-6 mt-auto prose">
                           <div className="space-y-2 mt-12">
                             <p className="text-[13px] whitespace-pre-wrap">
-                              Free projects are paused after 1 week of
+                              Free projects are paused after 3 months of
                               inactivity.
                             </p>
                           </div>
