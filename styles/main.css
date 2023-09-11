@@ -9390,7 +9390,7 @@ input[type=number]::-webkit-outer-spin-button {
   overflow-anchor: none
 }
 
-@font-face {
+/* @font-face {
   font-family: custom-font;
   src: url(/_next/static/media/CustomFont-Book.54303b32.woff2) format("woff2"), url(/_next/static/media/CustomFont-Book.d2378969.woff) format("woff");
   font-weight: 400;
@@ -9404,7 +9404,7 @@ input[type=number]::-webkit-outer-spin-button {
   font-weight: 500;
   font-style: normal;
   font-display: swap
-}
+} */
 
 html {
   scroll-behavior: smooth !important

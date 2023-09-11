@@ -122,12 +122,12 @@ export default function PricingComponent({
                 <React.Fragment key={product.id}>
                   <div
                     className={
-                      index === 0
+                      index === 2
                         ? 'bg-brand-600 dark:bg-brand border px-0.5 lg:-mt-8 rounded-[6px]'
                         : ''
                     }
                   >
-                    {index === 0 && (
+                    {index === 2 && (
                       <p className="text-[13px] leading-4 text-center py-2 text-scale-100">
                         Most Popular
                       </p>
@@ -200,12 +200,6 @@ export default function PricingComponent({
                           {renderedDetails}
                         </ul>
                         <div className="flex flex-col gap-6 mt-auto prose">
-                          <div className="space-y-2 mt-12">
-                            <p className="text-[13px] whitespace-pre-wrap">
-                              Free projects are paused after 3 months of
-                              inactivity.
-                            </p>
-                          </div>
                           <a href="https://supabase.com/dashboard/new?plan=free">
                             <button
                               type="button"
