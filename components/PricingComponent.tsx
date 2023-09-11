@@ -179,9 +179,7 @@ export default function PricingComponent({
                                       </div>
                                       <p className="-mt-2">
                                         <span className="bg-scale-200 text-brand-600 border shadow-sm rounded-md bg-opacity-30 py-0.5 px-2 text-[13px] leading-4">
-                                          {index === 2
-                                            ? 'Fixed price'
-                                            : 'Usage-based plan'}
+                                          Fixed price
                                         </span>
                                       </p>
                                     </div>
