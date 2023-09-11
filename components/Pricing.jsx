@@ -40,15 +40,15 @@ import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import cn from 'classnames';
 import { useRouter } from 'next/navigation';
+import React from 'react';
 import { useState } from 'react';
 export default function Pricing(_a) {
     var _this = this;
-    var _b;
     var session = _a.session, user = _a.user, products = _a.products, subscription = _a.subscription;
     var intervals = Array.from(new Set(products.flatMap(function (product) { var _a; return (_a = product === null || product === void 0 ? void 0 : product.prices) === null || _a === void 0 ? void 0 : _a.map(function (price) { return price === null || price === void 0 ? void 0 : price.interval; }); })));
     var router = useRouter();
-    var _c = useState('month'), billingInterval = _c[0], setBillingInterval = _c[1];
-    var _d = useState(), priceIdLoading = _d[0], setPriceIdLoading = _d[1];
+    var _b = useState('month'), billingInterval = _b[0], setBillingInterval = _b[1];
+    var _c = useState(), priceIdLoading = _c[0], setPriceIdLoading = _c[1];
     var handleCheckout = function (price) { return __awaiter(_this, void 0, void 0, function () {
         var sessionId, stripe, error_1;
         return __generator(this, function (_a) {
@@ -99,58 +99,64 @@ export default function Pricing(_a) {
         </div>
         <LogoCloud />
       </section>);
-    if (products.length === 1)
+    if (products.length > 0)
         return (<section className="bg-black">
-        <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
-          <div className="sm:flex sm:flex-col sm:align-center">
-            <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-              Pricing Plans
-            </h1>
-            <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-              Start building for free, then add a site plan to go live. Account
-              plans unlock additional features.
-            </p>
-            <div className="relative flex self-center mt-12 border rounded-lg bg-zinc-900 border-zinc-800">
-              <div className="border border-pink-500 border-opacity-50 divide-y rounded-lg shadow-sm bg-zinc-900 divide-zinc-600">
-                <div className="p-6 py-2 m-1 text-2xl font-medium text-white rounded-md shadow-sm border-zinc-800 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8">
-                  {products[0].name}
+      <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
+        <div className="sm:flex sm:flex-col sm:align-center">
+          <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+            Pricing Plans
+          </h1>
+          <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
+            Start building for free, then add a site plan to go live. Account
+            plans unlock additional features.
+          </p>
+
+          {products.map(function (product) {
+                var _a;
+                return (<React.Fragment key={product.id}>
+              <div className="relative flex self-center mt-12 border rounded-lg bg-zinc-900 border-zinc-800">
+                <div className="border border-pink-500 border-opacity-50 divide-y rounded-lg shadow-sm bg-zinc-900 divide-zinc-600">
+                  <div className="p-6 py-2 m-1 text-2xl font-medium text-white rounded-md shadow-sm border-zinc-800 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8">
+                    {product.name}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="mt-6 space-y-4 sm:mt-12 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
-              {(_b = products[0].prices) === null || _b === void 0 ? void 0 : _b.map(function (price) {
-                var _a, _b;
-                var priceString = price.unit_amount &&
-                    new Intl.NumberFormat('en-US', {
-                        style: 'currency',
-                        currency: price.currency,
-                        minimumFractionDigits: 0
-                    }).format(price.unit_amount / 100);
-                return (<div key={price.interval} className="divide-y rounded-lg shadow-sm divide-zinc-600 bg-zinc-900">
-                    <div className="p-6">
-                      <p>
-                        <span className="text-5xl font-extrabold white">
-                          {priceString}
-                        </span>
-                        <span className="text-base font-medium text-zinc-100">
-                          /{price.interval}
-                        </span>
-                      </p>
-                      <p className="mt-4 text-zinc-300">{price.description}</p>
-                      <Button variant="slim" type="button" disabled={false} loading={priceIdLoading === price.id} onClick={function () { return handleCheckout(price); }} className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white rounded-md hover:bg-zinc-900 ">
-                        {products[0].name ===
-                        ((_b = (_a = subscription === null || subscription === void 0 ? void 0 : subscription.prices) === null || _a === void 0 ? void 0 : _a.products) === null || _b === void 0 ? void 0 : _b.name)
-                        ? 'Manage'
-                        : 'Subscribe'}
-                      </Button>
-                    </div>
-                  </div>);
+              <div className="mt-6 space-y-4 sm:mt-12 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
+                {(_a = product.prices) === null || _a === void 0 ? void 0 : _a.map(function (price) {
+                        var _a, _b;
+                        var priceString = price.unit_amount &&
+                            new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: price.currency,
+                                minimumFractionDigits: 0
+                            }).format(price.unit_amount / 100);
+                        return (<div key={price.id} className="divide-y rounded-lg shadow-sm divide-zinc-600 bg-zinc-900">
+                      <div className="p-6">
+                        <p>
+                          <span className="text-5xl font-extrabold white">
+                            {priceString}
+                          </span>
+                          <span className="text-base font-medium text-zinc-100">
+                            /{price.interval}
+                          </span>
+                        </p>
+                        <p className="mt-4 text-zinc-300">{price.description}</p>
+                        <Button variant="slim" type="button" disabled={false} loading={priceIdLoading === price.id} onClick={function () { return handleCheckout(price); }} className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white rounded-md hover:bg-zinc-900">
+                          {product.name === ((_b = (_a = subscription === null || subscription === void 0 ? void 0 : subscription.prices) === null || _a === void 0 ? void 0 : _a.products) === null || _b === void 0 ? void 0 : _b.name)
+                                ? 'Manage'
+                                : 'Subscribe'}
+                        </Button>
+                      </div>
+                    </div>);
+                    })}
+              </div>
+            </React.Fragment>);
             })}
-            </div>
-          </div>
+
           <LogoCloud />
         </div>
-      </section>);
+      </div>
+    </section>);
     return (<section className="bg-black">
       <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
         <div className="sm:flex sm:flex-col sm:align-center">
