@@ -103,10 +103,6 @@ export default function Pricing({
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Pricing Plans
           </h1>
-          <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-            Start building for free, then add a site plan to go live. Account
-            plans unlock additional features.
-          </p>
 
           {products.map((product) => (
             <React.Fragment key={product.id}>
