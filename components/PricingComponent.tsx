@@ -13,6 +13,8 @@ import { useState } from 'react';
 type Subscription = Database['public']['Tables']['subscriptions']['Row'];
 type Product = Database['public']['Tables']['products']['Row'];
 type Price = Database['public']['Tables']['prices']['Row'];
+type ProductDetails = Database['public']['Tables']['product_details']['Row'];
+
 interface ProductWithPrices extends Product {
   prices: Price[];
 }
@@ -28,6 +30,7 @@ interface Props {
   user: User | null | undefined;
   products: ProductWithPrices[];
   subscription: SubscriptionWithProduct | null;
+  productDetails: ProductDetails[];
 }
 
 type BillingInterval = 'lifetime' | 'year' | 'month';
@@ -36,7 +39,8 @@ export default function PricingComponent({
   session,
   user,
   products,
-  subscription
+  subscription,
+  productDetails,
 }: Props) {
   const intervals = Array.from(
     new Set(
@@ -166,246 +170,30 @@ export default function PricingComponent({
                           Get started with:
                         </p>
                         <ul role="list" className="text-[13px] text-scale-1000">
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Unlimited API requests
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Social OAuth providers
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Up to 500MB database space
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Up to 1GB file storage
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Up to 5GB bandwidth
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Up to 50MB file uploads
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Up to 50,000 monthly active users
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Up to 500K Edge Function invocations
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Up to 200 concurrent Realtime connections
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Up to 2 million Realtime messages
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              1-day log retention
-                            </span>
-                          </li>
-                          <li className="flex items-center py-2 first:mt-0">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="18"
-                              height="18"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="3"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              className="sbui-icon text-brand h-4 w-4"
-                              aria-hidden="true"
-                            >
-                              <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span className="dark:text-scale-1200 mb-0 ml-3 ">
-                              Community support
-                            </span>
-                          </li>
+                          {productDetails.map((productDetail) => {
+                            return (
+                              <li className="flex items-center py-2 first:mt-0">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="3"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="sbui-icon text-brand h-4 w-4"
+                                aria-hidden="true"
+                              >
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                              </svg>
+                              <span className="dark:text-scale-1200 mb-0 ml-3 ">
+                                {productDetail.detail_text}
+                              </span>
+                            </li>
+                            )
+                          })}
                         </ul>
                         <div className="flex flex-col gap-6 mt-auto prose">
                           <div className="space-y-2 mt-12">

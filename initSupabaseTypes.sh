@@ -1,0 +1,1 @@
+npx supabase gen types typescript --project-id "rhsukgckhrdjzbribahe" --schema public > src/components/types/supabase.d.ts && cp src/components/types/supabase.d.ts public/supabase.d.ts && cd ~ && npx ts-json-schema-generator --path '/Users/joeshakely/Projects/nextjs-ts/public/supabase.d.ts' --type 'Database' > /Users/joeshakely/Projects/nextjs-ts/public/supabase.json

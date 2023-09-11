@@ -107,6 +107,34 @@ export interface Database {
         }
         Relationships: []
       }
+      product_details: {
+        Row: {
+          detail_text: string
+          detail_type: string
+          id: number
+          product_id: string | null
+        }
+        Insert: {
+          detail_text: string
+          detail_type: string
+          id?: number
+          product_id?: string | null
+        }
+        Update: {
+          detail_text?: string
+          detail_type?: string
+          id?: number
+          product_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_details_product_id_fkey"
+            columns: ["product_id"]
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       subscriptions: {
         Row: {
           cancel_at: string | null

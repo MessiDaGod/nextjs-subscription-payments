@@ -1,3 +1,5 @@
+'use server';
+
 import { Database } from '@/types_db';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
@@ -59,6 +61,19 @@ export const getActiveProductsWithPrices = async () => {
     .eq('prices.active', true)
     .order('metadata->index')
     .order('unit_amount', { foreignTable: 'prices' });
+
+  if (error) {
+    console.log(error.message);
+  }
+  return data ?? [];
+};
+
+export const getProductDetails = async () => {
+  const supabase = createServerSupabaseClient();
+  const { data, error } = await supabase
+    .from('product_details')
+    .select('*, products(*)')
+    .order('id');
 
   if (error) {
     console.log(error.message);
