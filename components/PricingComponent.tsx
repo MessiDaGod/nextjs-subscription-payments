@@ -80,13 +80,14 @@ export default function PricingComponent({
       <div className="relative z-10 py-16 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl space-y-2 lg:max-w-none">
-            <h1 className="text-brand text-base">Pricing</h1>
+          <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">Pricing</h1>
           </div>
         </div>
       </div>
       <div className="mx-auto lg:container lg:px-16 xl:px-12 flex flex-col">
         <div className="relative z-10 mx-auto -mt-8 w-full px-4 sm:px-6 lg:px-8 ">
           <div className="mx-auto max-w-md grid lg:max-w-none lg:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-2 2xl:gap-5">
+            {/* Plans */}
             <div className="">
               <div className="flex flex-col overflow-hidden border h-full rounded-[4px]">
                 <div className="dark:bg-scale-300 bg-white px-8 xl:px-4 2xl:px-8 pt-6 rounded-tr-[4px] rounded-tl-[4px] ">
@@ -398,6 +399,7 @@ export default function PricingComponent({
               </div>
             </div>
             <div className="bg-brand-600 dark:bg-brand border px-0.5 lg:-mt-8 rounded-[6px]">
+
               <p className="text-[13px] leading-4 text-center py-2 text-scale-100">
                 Most Popular
               </p>
@@ -1128,17 +1130,6 @@ export default function PricingComponent({
             </div>
           </div>
         </div>
-      </div>
-      <div className="text-center mt-20">
-        <a href="#compare-plans">
-          <button
-            type="button"
-            className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 border text-scale-1200 bg-scale-100 hover:bg-scale-300 border-scale-600 hover:border-scale-700 dark:border-scale-700 hover:dark:border-scale-800 dark:bg-scale-500 dark:hover:bg-scale-600 focus-visible:outline-brand-600 shadow-sm text-xs px-2.5 py-1"
-          >
-            {' '}
-            <span className="truncate">Compare Plans</span>{' '}
-          </button>
-        </a>
       </div>
     </div>
   );
