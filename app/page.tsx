@@ -1,4 +1,5 @@
 import Pricing from '@/components/Pricing';
+import PricingComponent from '@/components/PricingComponent';
 import {
   getSession,
   getSubscription,
@@ -13,7 +14,13 @@ export default async function PricingPage() {
   ]);
 
   return (
-    <Pricing
+    // <Pricing
+    //   session={session}
+    //   user={session?.user}
+    //   products={products}
+    //   subscription={subscription}
+    // />
+    <PricingComponent
       session={session}
       user={session?.user}
       products={products}
