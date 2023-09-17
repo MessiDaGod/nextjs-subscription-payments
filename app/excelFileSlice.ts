@@ -56,9 +56,9 @@ import type {
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 import {current} from '@reduxjs/toolkit'
 import {createPagesBrowserClient} from '@supabase/auth-helpers-nextjs'
-import type { Database } from '@/types/supabase'
 import {openDB} from 'idb'
 import { RootState } from './store'
+import { Database } from '@/types_db'
 
 let leaseStartDate = ''
 let leaseEndDate = ''
