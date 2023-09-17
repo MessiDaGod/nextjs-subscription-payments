@@ -1,0 +1,100 @@
+.table-container {
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 0.7fr));
+    gap: 1px;
+    position: relative;
+
+    .top-left-corner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+    .tr {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+        width: 100%;
+    }
+
+    .td {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #3f3e3e;
+        /* optional border for cell visibility */
+        padding: 1px;
+        /* inner cell padding */
+        overflow: hidden;
+        /* hide overflow content */
+        text-overflow: ellipsis;
+        /* add ... for long content */
+        white-space: nowrap;
+        /* prevent line breaks within cell */
+    }
+
+    .th {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(38, 37, 37);
+        padding: 1px;
+        /* inner cell padding */
+        overflow: hidden;
+        /* hide overflow content */
+        text-overflow: ellipsis;
+        /* add ... for long content */
+        white-space: nowrap;
+        /* prevent line breaks within cell */
+    }
+
+    input {
+        width: 100%;
+        /* ensure input fields take up the full cell */
+    }
+}
+
+.coldivider {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    cursor: col-resize;
+    user-select: none;
+    touch-action: none;
+    opacity: 1;
+    box-sizing: content-box;
+}
+
+.th.tr>div:last-child>div.coldivider {
+    background-color: transparent;
+}
+
+.td.tr>div:last-child>div.coldivider {
+    background-color: transparent;
+}
+
+@media (hover: hover) {
+    *:hover>.coldivider:hover {
+        border-right: 1px solid blue;
+        opacity: 1;
+    }
+}
+
+.table-container2 {
+    display: flex;
+    padding-top: 20px;
+
+    .tr2 {
+        display: flex;
+    }
+
+}
+
+.td[data-column-id="STATUS"] {
+    justify-content: flex-start;
+}

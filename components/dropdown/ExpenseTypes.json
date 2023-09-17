@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 24722,
+    "ExpenseType": "Conservation",
+    "Description": "Conservation"
+  },
+  {
+    "Id": 24723,
+    "ExpenseType": "Operations",
+    "Description": "Operations"
+  },
+  {
+    "Id": 24724,
+    "ExpenseType": "Capital",
+    "Description": "Capital"
+  },
+  {
+    "Id": 24725,
+    "ExpenseType": "Construction",
+    "Description": "Construction"
+  },
+  {
+    "Id": 24726,
+    "ExpenseType": "Conservation",
+    "Description": "Conservation"
+  },
+  {
+    "Id": 24727,
+    "ExpenseType": "MF Cares",
+    "Description": "MF Cares"
+  }
+]

@@ -1,0 +1,490 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular.woff2') format('woff2'),
+        url('/fonts/OpenSans-Regular.woff') format('woff');
+    font-display: swap;
+}
+
+.ddTable {
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    min-height: 300px;
+}
+
+.divTable {
+    width: fit-content;
+    overflow-y: none;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: fit-content;
+    overflow-y: none;
+    margin-bottom: 20px;
+}
+
+.tr:not(.border) {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.tr:not(.border):last-child {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+.tr:hover {
+    border-color: 1px solid white;
+}
+
+.th,
+.td:not(.border) {
+    user-select: none;
+    vertical-align: middle;
+    display: inline-flex;
+    font-size: 11px;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.thead>.tr>.th:last-child {
+    width: 100%;
+}
+
+
+.thead>.tr {
+    position: sticky;
+    top: 0;
+    z-index: 0;
+    padding: 5px 5px;
+}
+.thead {
+    z-index: 0;
+}
+.tr {
+    z-index: 0;
+}
+
+.th {
+    position: relative;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    vertical-align: inherit;
+    justify-content: flex-start;
+    z-index: 0;
+    background-color: rgb(38, 37, 37);
+}
+
+.th:last-child {
+    width: 100%;
+}
+
+.td:not(.border) {
+    align-items: center;
+    z-index: 0;
+    color: white;
+    border: 1px solid #3f3e3e; /* optional border for cell visibility */
+    background-color: var(--colors-scale3);
+    user-select: text;
+    height: 100%;
+    white-space: nowrap;
+    background-color: black;
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+.thead {
+    display: flex;
+    border-color: var(--colors-scale5);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.thead>.tr {
+    border-color: var(--colors-scale5);
+    background-color: var(--colors-scale3);
+    color: white;
+}
+
+
+.td>input {
+    width: 100%;
+}
+
+.thead>.tr>*>.th {
+    border: none !important;
+}
+
+.td>**>input {
+    cursor: pointer;
+}
+
+.tr.th {
+    border-color: var(--colors-scale5);
+    background-color: var(--colors-scale3);
+}
+
+.td:hover {
+    z-index: 10;
+    cursor: pointer;
+}
+
+.td>input {
+    height: 100%;
+}
+
+
+.coldivider {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    cursor: col-resize;
+    user-select: none;
+    touch-action: none;
+    // background-color: var(--bg-color);
+    opacity: 1;
+    box-sizing: content-box;
+}
+
+.th.tr>div:last-child>div.coldivider {
+    background-color: transparent;
+}
+
+.td.tr>div:last-child>div.coldivider {
+    background-color: transparent;
+}
+
+@media (hover: hover) {
+    *:hover>.coldivider:hover {
+        border-right: 1px solid blue;
+        opacity: 1;
+    }
+}
+
+.tdDivider {
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    cursor: col-resize;
+    user-select: none;
+    touch-action: none;
+    background-color: red;
+    opacity: 1;
+    box-sizing: content-box;
+}
+
+.th.tr>div:last-child>div.tdDivider {
+    background-color: transparent;
+}
+
+.td.tr>div:last-child>div.tdDivider {
+    background-color: transparent;
+}
+
+@media (hover: hover) {
+    *:hover>.tdDivider:hover {
+        border-right: 1px solid blue;
+        opacity: 1;
+    }
+}
+
+.rz-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-container {
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    height: fit-content;
+    padding-top: 20px;
+}
+
+.dropdown:hover+.dd-container {
+    display: flex;
+    background-color: #6b6666;
+    padding: 10px;
+    position: absolute;
+    min-width: 500px;
+    resize: both;
+    min-height: 350px;
+    z-index: 100000;
+}
+
+.dropdown+.dd-container:hover {
+    display: flex;
+    background-color: #6b6666;
+    padding: 10px;
+    position: absolute;
+    min-width: 500px;
+    resize: both;
+    min-height: 350px;
+    z-index: 100000;
+}
+
+.dropdown.showSearchBox {
+    display: flex;
+    background-color: #6b6666;
+    padding: 10px;
+    position: absolute;
+    min-width: 500px;
+    resize: both;
+    min-height: 350px;
+    z-index: 100000;
+}
+
+.dd-container {
+    display: none;
+}
+
+.dd-container-hidden {
+    background-color: #1d1d1d;
+    padding: 10px;
+    position: absolute;
+    z-index: 0;
+}
+
+
+.dropdown {
+    border: 1px solid grey;
+    border-radius: 4px;
+    box-shadow: none;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-start;
+    user-select: none;
+    z-index: 0;
+    position: relative;
+    opacity: 1;
+    height: inherit;
+    box-sizing: border-box;
+    margin-right: 5px;
+    white-space: nowrap;
+}
+
+.dropdown>*>input {
+    cursor: pointer;
+}
+
+.button {
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 14px;
+    color: black;
+    border-style: solid;
+    border-color: white;
+    cursor: pointer;
+    margin: 2px;
+    border-radius: 15px;
+    display: block;
+    transform: translateY(25%);
+    margin: 0px;
+}
+
+
+.active {
+    background-color: #f03a3a;
+    transition-duration: 0.2s;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 14px;
+    color: black;
+    border-style: solid;
+    border-color: white;
+    cursor: pointer;
+    margin: 2px;
+    border-radius: 15px;
+    display: block;
+    transform: translateY(25%);
+    margin: 0px;
+}
+
+.rowdivider {
+    position: absolute;
+    cursor: row-resize;
+    user-select: none;
+    touch-action: none;
+    display: flex;
+}
+
+.rowdivider:hover {
+    opacity: 1;
+}
+
+@media (hover: hover) {
+    .rowdivider {
+        opacity: 0;
+        cursor: row-resize;
+    }
+}
+
+.black {
+    color: black;
+}
+
+.white {
+    color: white;
+}
+
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+
+.findcomponent {
+    color: white;
+    background-color: inherit;
+    font-size: 16px;
+    border-bottom: 1px solid #2f333d;
+    width: 100%;
+    cursor: pointer;
+    background-color: black;
+}
+
+.findcomponent::-webkit-search-decoration,
+.findcomponent::-webkit-search-results-button,
+.findcomponent::-webkit-search-results-decoration {
+    /* Remove the default styling for the search input */
+    display: none;
+}
+
+.findcomponent:focus {
+    /* Set the cursor to blink */
+    caret-color: transparent;
+    background-color: black;
+    cursor: text;
+}
+
+.findcomponent:focus::selection {
+    /* Make the cursor blink */
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent;
+    }
+}
+
+.add {
+    color: green;
+    margin-left: 10px;
+}
+
+.add:hover {
+    color: lime;
+}
+
+
+
+.delete {
+    color: rgb(148, 1, 1);
+    font-size: 20px;
+}
+
+.delete:hover {
+    color: rgb(253, 109, 109);
+}
+
+.searchicon {
+    display: flex;
+    color: white;
+    align-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    cursor: crosshair;
+    background-color: transparent;
+}
+
+.search-panel {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.1rem;
+    margin-top: 0rem;
+    padding: 5px;
+    height: 45px;
+    width: 100%;
+    cursor: text;
+}
+
+.search-panel:hover {
+    border: white;
+    background-color: black;
+}
+
+.td:not(.dropdown)>input:hover:not(.react-datepicker__input-container) {
+    // Apply your highlight styles here, for example:
+    border: 1px solid white;
+}
+
+.drag-handle {
+    cursor: col-resize;
+}
+
+.tr {
+    :last-child {
+        .td {
+            border-bottom: 0;
+        }
+    }
+}
+
+.tr {
+    .th:last-child {
+        width: 100%;
+    }
+}
+.tr {
+    .td:last-child {
+        width: 100%;
+        border: 1px solid #3f3e3e; /* optional border for cell visibility */
+    }
+}
+
+.tr.td>input {
+    width: 100%;
+}
+.focus {
+    border: 1px solid red;
+}
+.td2 {
+    border: 1px solid rgb(34, 34, 34);
+    padding: 1px 1px;
+}
+
+.td2 {
+    text-align: center;
+    min-width: 1px;
+}
+

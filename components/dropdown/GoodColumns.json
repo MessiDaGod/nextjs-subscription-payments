@@ -1,0 +1,79 @@
+{
+    "Property": [
+        {
+            "Name": "Id"
+        },
+        {
+            "Name": "Property_Code"
+        },
+        {
+            "Name": "Property_Name"
+        }
+    ],
+    "Vendor": [
+        {
+            "Name": "Id"
+        },
+        {
+            "Name": "Vendor_Code"
+        },
+        {
+            "Name": "Last_Name"
+        }
+    ],
+    "Account": [
+        {
+            "Name": "Id"
+        },
+        {
+            "Name": "Account_Code"
+        },
+        {
+            "Name": "Description"
+        }
+    ],
+    "Tenant": [
+        {
+            "Name": "Tenant_Code"
+        },
+        {
+            "Name": "Tenant_LastName"
+        },
+        {
+            "Name": "Tenant_Address1"
+        }
+    ],
+    "Lease": [
+        {
+            "Name": "Tenant_Code"
+        },
+        {
+            "Name": "Tenant_LastName"
+        },
+        {
+            "Name": "Lease_Start_Date"
+        }
+    ],
+    "Tables": [
+        {
+            "Name": "Id"
+        },
+        {
+            "Name": "Object_Id"
+        },
+        {
+            "Name": "TableName"
+        }
+    ],
+    "ExpenseType": [
+        {
+            "Name": "Id"
+        },
+        {
+            "Name": "ExpenseType"
+        },
+        {
+            "Name": "Description"
+        }
+    ]
+}

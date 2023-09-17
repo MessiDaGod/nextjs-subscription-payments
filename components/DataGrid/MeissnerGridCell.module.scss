@@ -1,0 +1,20 @@
+.hoverContainer .hoverShow {
+  display: none;
+  /* Hide by default */
+}
+
+.hoverContainer:hover .hoverShow {
+  display: inline;
+  /* Show on hover */
+}
+
+.cellContainer:hover .hoverShow {
+  display: inline-flex;
+}
+
+.hoverShow {
+  display: none;
+  align-content: flex-end;
+  padding-right: 10px;
+  padding-top: 3px;
+}

@@ -1,0 +1,54 @@
+{
+    "Invoice": [
+        {
+            "Name": "PERSON",
+            "Type": "string",
+            "Lookup": "GetVendors"
+        },
+        {
+            "Name": "POSTMONTH",
+            "Type": "date",
+            "Lookup": null
+        },
+        {
+            "Name": "DATE",
+            "Type": "date",
+            "Lookup": null
+        },
+        {
+            "Name": "DUEDATE",
+            "Type": "date",
+            "Lookup": null
+        },
+        {
+            "Name": "ACCOUNT",
+            "Type": "string",
+            "Lookup": "GetAccounts"
+        },
+        {
+            "Name": "AMOUNT",
+            "Type": "number",
+            "Lookup": null
+        },
+        {
+            "Name": "PROPERTY",
+            "Type": "string",
+            "Lookup": "GetPropOptions"
+        },
+        {
+            "Name": "REF",
+            "Type": "string",
+            "Lookup": null
+        },
+        {
+            "Name": "NOTES",
+            "Type": "string",
+            "Lookup": null
+        },
+        {
+            "Name": "DESC",
+            "Type": "string",
+            "Lookup": null
+        }
+    ]
+}

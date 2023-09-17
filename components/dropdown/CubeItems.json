@@ -1,0 +1,114 @@
+{
+    "CubeItems": [
+        {
+            "Name": "Work Order Details",
+            "Type": "Dimension",
+            "FileName": "work_order_details.sql"
+        },
+        {
+            "Name": "Work Order Details",
+            "Type": "Measure",
+            "FileName": "Avg Days to Close.sql"
+        },
+        {
+            "Name": "Work Order Details",
+            "Type": "Measure",
+            "FileName": "Custom Previous Day Work Orders Completed.sql"
+        },
+        {
+            "Name": "Property Attributes",
+            "Type": "Dimension",
+            "FileName": "property_attributes.sql"
+        },
+        {
+            "Name": "Average Make Ready",
+            "Type": "Measure",
+            "FileName": "avg_make_ready.sql"
+        },
+        {
+            "Name": "Work Order Category",
+            "Type": "Dimension",
+            "FileName": "work_order_category.sql"
+        },
+        {
+            "Name": "Work Order",
+            "Type": "Dimension",
+            "FileName": "work_order.sql"
+        },
+        {
+            "Name": "Property",
+            "Type": "Dimension",
+            "FileName": "property.sql"
+        },
+        {
+            "Name": "Prospect History",
+            "Type": "Dimension",
+            "FileName": "prospect_history.sql"
+        },
+        {
+            "Name": "Tenant Aging",
+            "Type": "Dimension",
+            "FileName": "tenant_aging.sql"
+        },
+        {
+            "Name": "Tenant History",
+            "Type": "Dimension",
+            "FileName": "tenant_history.sql"
+        },
+        {
+            "Name": "Tenant",
+            "Type": "Dimension",
+            "FileName": "tenant.sql"
+        },
+        {
+            "Name": "Lease Charges",
+            "Type": "Dimension",
+            "FileName": "lease_charges.sql"
+        },
+        {
+            "Name": "Lease History",
+            "Type": "Dimension",
+            "FileName": "lease_history.sql"
+        },
+        {
+            "Name": "Marketing Source",
+            "Type": "Dimension",
+            "FileName": "marketing_source.sql"
+        },
+        {
+            "Name": "Unit Status",
+            "Type": "Dimension",
+            "FileName": "unit_status.sql"
+        },
+        {
+            "Name": "Charge Type",
+            "Type": "Dimension",
+            "FileName": "charge_type.sql"
+        },
+        {
+            "Name": "Dates",
+            "Type": "Dimension",
+            "FileName": "dates.sql"
+        },
+        {
+            "Name": "Detail",
+            "Type": "Dimension",
+            "FileName": "detail.sql"
+        },
+        {
+            "Name": "Financial Measures",
+            "Type": "Dimension",
+            "FileName": "financial_measures.sql"
+        },
+        {
+            "Name": "Total",
+            "Type": "Dimension",
+            "FileName": "total.sql"
+        },
+        {
+            "Name": "Transactions",
+            "Type": "Dimension",
+            "FileName": "transactions.sql"
+        }
+    ]
+}

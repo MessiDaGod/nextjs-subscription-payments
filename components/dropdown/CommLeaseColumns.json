@@ -1,0 +1,34 @@
+{
+    "CommLease": [
+        {
+            "Name": "Property_Code",
+            "Type": "string",
+            "Lookup": "GetPropOptions"
+        },
+        {
+            "Name": "Lease_Code",
+            "Type": "string",
+            "Lookup": null
+        },
+        {
+            "Name": "Lease_Name",
+            "Type": "string",
+            "Lookup": null
+        },
+        {
+            "Name": "Lease_Start_Date",
+            "Type": "date",
+            "Lookup": null
+        },
+        {
+            "Name": "Lease_End_Date",
+            "Type": "date",
+            "Lookup": null
+        },
+        {
+            "Name": "Contracted_Area",
+            "Type": "number",
+            "Lookup": null
+        }
+    ]
+}

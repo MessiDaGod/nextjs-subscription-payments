@@ -1,0 +1,44 @@
+{
+    "Items": [
+        {
+            "Value": "Post Invoices",
+            "Active": true
+        },
+        {
+            "Value": "CommLeases",
+            "Active": true
+        },
+        {
+            "Value": "GetFinPayables",
+            "Active": false
+        },
+        {
+            "Value": "GetFromQuery",
+            "Active": false
+        },
+        {
+            "Value": "GetVendors",
+            "Active": false
+        },
+        {
+            "Value": "GetPropOptions",
+            "Active": false
+        },
+        {
+            "Value": "GetAccounts",
+            "Active": false
+        },
+        {
+            "Value": "GetTenants",
+            "Active": false
+        },
+        {
+            "Value": "GetLeases",
+            "Active": false
+        },
+        {
+            "Value": "GetExpenseTypes",
+            "Active": false
+        }
+    ]
+}

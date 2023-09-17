@@ -1,0 +1,49 @@
+.grid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    padding-right: 17px;
+}
+
+.column {
+    position: relative;
+}
+
+.spinner {
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s ease-in-out infinite;
+
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.td {
+    align-items: center;
+    user-select: text;
+    height: 100%;
+    white-space: nowrap;
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+
+.th,
+.td {
+    user-select: none;
+    vertical-align: middle;
+    display: inline-flex;
+    overflow: hidden;
+}
