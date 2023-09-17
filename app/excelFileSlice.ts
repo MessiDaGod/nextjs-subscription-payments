@@ -58,7 +58,8 @@ import {current} from '@reduxjs/toolkit'
 import {createPagesBrowserClient} from '@supabase/auth-helpers-nextjs'
 import {openDB} from 'idb'
 import { RootState } from './store'
-import { Database } from '@/types_db'
+import { Database } from '@/components/types/supabase'
+
 
 let leaseStartDate = ''
 let leaseEndDate = ''
