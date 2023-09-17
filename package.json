@@ -20,6 +20,7 @@
     "@supabase/supabase-js": "^2.23.0",
     "axios": "^1.5.0",
     "classnames": "^2.3.2",
+    "dayjs": "^1.11.9",
     "encoding": "^0.1.13",
     "idb": "^7.1.1",
     "next": "13.4.3",
