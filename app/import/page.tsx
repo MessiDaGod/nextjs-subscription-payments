@@ -128,10 +128,15 @@ import type {
 } from '@/components/utils'
 import { RootState } from '../store'
 
-const sttngs = JSON.parse(JSON.stringify(settingsJson))
-let settings = []
-settings.push(...sttngs)
-const meissnerGridItemsPerPageObj = settings.find((item) => item.name === 'MeissnerGridItemsPerPage')
+const sttngs = JSON.parse(JSON.stringify(settingsJson));
+let settings = [];
+
+if (Array.isArray(sttngs)) {
+  settings.push(...sttngs);
+}
+
+const meissnerGridItemsPerPageObj = settings.find((item) => item.name === 'MeissnerGridItemsPerPage');
+
 
 // Access the value if the object is found
 let meissnerGridItemsPerPageValue

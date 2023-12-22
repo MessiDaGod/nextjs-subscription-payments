@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES6",
     "outDir": "build",
     "lib": [
+      "DOM",
+      "DOM.iterable",
+      "ESNext",
       "dom",
-      "dom.iterable",
-      "esnext"
+      "es5",
+      "es2015.collection",
+      "es2015.promise"
     ],
     "allowJs": true,
     "skipLibCheck": true,

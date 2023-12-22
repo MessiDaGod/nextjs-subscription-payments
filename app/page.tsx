@@ -4,8 +4,10 @@ import {
   getActiveProductsWithPrices,
   getProductDetails
 } from '@/app/supabase-server';
-import Pricing from '@/components/Pricing';
 import PricingComponent from '@/components/PricingComponent';
+import { Provider } from 'react-redux'
+import { store } from './store';
+
 
 export default async function PricingPage() {
   const [session, products, subscription, productDetails] = await Promise.all([
@@ -16,6 +18,7 @@ export default async function PricingPage() {
   ]);
 
   return (
+    <Provider store={store}>
     <PricingComponent
       session={session}
       user={session?.user}
@@ -23,5 +26,6 @@ export default async function PricingPage() {
       subscription={subscription}
       productDetails={productDetails}
     />
+    </Provider>
   );
 }
